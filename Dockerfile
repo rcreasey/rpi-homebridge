@@ -17,10 +17,15 @@ RUN wget --no-check-certificate -O - https://deb.nodesource.com/setup_6.x | bash
 # install homebridge
 RUN npm install -g --unsafe-perm homebridge hap-nodejs node-gyp
 
+# install homebridge plugin dependencies
+RUN curl -O https://github.com/legotheboss/YouTube-files/raw/master/ffmpeg_3.1.4-1_armhf.deb
+RUN dpkg -i ffmpeg_3.1.4-1_armhf.deb
+
 # install homebridge plugins
 RUN npm install -g homebridge-nest --unsafe-perm
 RUN npm install -g https://github.com/rcreasey/homebridge-garage-sentry.git --unsafe-perm
 RUN npm install -g homebridge-platform-ring-video-doorbell
+RUN npm install -g homebridge-camera-ffmpeg-omx
 
 USER root
 VOLUME ["/root/.homebridge"]
