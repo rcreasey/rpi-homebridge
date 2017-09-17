@@ -17,11 +17,6 @@ RUN wget --no-check-certificate -O - https://deb.nodesource.com/setup_6.x | bash
 # install homebridge
 RUN npm install -g --unsafe-perm homebridge hap-nodejs node-gyp
 
-# install homebridge plugins
-RUN npm install -g homebridge-nest --unsafe-perm
-RUN npm install -g https://github.com/rcreasey/homebridge-garage-sentry.git --unsafe-perm
-RUN npm install -g homebridge-platform-ring-video-doorbell
-
 USER root
 VOLUME ["/root/.homebridge"]
 RUN mkdir -p /var/run/dbus
