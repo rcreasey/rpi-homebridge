@@ -9,8 +9,8 @@ ENV LANG en_US.UTF-8
 RUN apt-get update && apt-get install -y \
     wget build-essential curl git apt-transport-https python make g++ avahi-daemon avahi-discover libnss-mdns libavahi-compat-libdnssd-dev libkrb5-dev net-tools libpcap-dev
 
-# install latest stable node 6
-RUN wget --no-check-certificate -O - https://deb.nodesource.com/setup_6.x | bash && \
+# install latest stable node 
+RUN wget --no-check-certificate -O - https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs && \
     apt-get clean
 
